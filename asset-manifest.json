@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react_site_win95_like/static/css/main.50dbd929.css",
+    "main.js": "/react_site_win95_like/static/js/main.c3013ac8.js",
+    "static/js/787.6cf453f3.chunk.js": "/react_site_win95_like/static/js/787.6cf453f3.chunk.js",
+    "index.html": "/react_site_win95_like/index.html",
+    "main.50dbd929.css.map": "/react_site_win95_like/static/css/main.50dbd929.css.map",
+    "main.c3013ac8.js.map": "/react_site_win95_like/static/js/main.c3013ac8.js.map",
+    "787.6cf453f3.chunk.js.map": "/react_site_win95_like/static/js/787.6cf453f3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.50dbd929.css",
+    "static/js/main.c3013ac8.js"
+  ]
+}
