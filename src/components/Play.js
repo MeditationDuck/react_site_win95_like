@@ -10,7 +10,7 @@ function Play() {
   // const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
   return (
     <div className=''>
-      <h1>Play</h1>
+      {/* <h1>Play</h1> */}
 
       {/* <motion.div 
         style={{backgroundColor:"red", width: "30px", height: "30px"}}
@@ -33,10 +33,22 @@ function Play() {
       </motion.div> */}
 
       <Draggable
-        defaultPosition={{x: 100, y: 100}}
+        defaultPosition={{x: 40, y: 40}}
       >
-      <div style={{ width: "200px", height: "200px", borderRadius: "20%" }} className="handle bg-primary">
-        <div className="box text-black text-center text- font-w95">nya nta</div>
+      <div 
+      style={{ width: "100px", height: "100px" }} 
+      className="handle flex item-center justify-center border border-dashed border-black"
+      // onClick={() => console.log('click')}
+      >
+        <div className="box text-center text- font-w95">
+        <div style={{ 
+            backgroundImage: `url(${process.env.PUBLIC_URL}/folder.ico)`,
+            backgroundSize: 'cover',
+            height: '60px',
+            width: '60px'
+        }}></div>
+          <p>Folder</p>
+        </div>
 
         </div>
       </Draggable>

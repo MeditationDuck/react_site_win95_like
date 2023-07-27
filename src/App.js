@@ -7,7 +7,7 @@ import './App.css';
 function App() {
   return (
     <BrowserRouter>
-      <div className='bg-slate-950 w-screen min-h-screen'>
+      <div className='bg-desktop w-screen min-h-screen'>
         {/* navbar should here */}
         <Navbar />
         {/* <div className='relative'> */}
