@@ -18,7 +18,7 @@ function Play() {
   const [position, setPosition] = useState({x: 40, y: 40});
   
   const onStop = (data, name) => {
-    if (data.x === position.x && data.y === position.y && name === "notepad") {
+    if ( Math.abs(data.x - position.x) <= 2  && Math.abs(data.y - position.y) <= 2 && name === "notepad") {
       setShowWindow(true);
     } else {
       setPosition({ x: data.x, y: data.y });
@@ -33,6 +33,7 @@ function Play() {
           defaultPosition={{x: 40, y: 40}}
           onStop={(_, data) => onStop(data, element.name)}
           key={index}
+          grid={[2, 2]}
         >
         <div 
         style={{ width: "100px", height: "100px" }} 
@@ -53,12 +54,9 @@ function Play() {
         )
       })}
 
-        {/* by default this window should not shown but if I double click the notepad icon.
-        it should appear this window */}
-
         {showWindow && 
         <Draggable handle="strong" 
-        defaultPosition={{x: 100, y: 40}}
+        defaultPosition={{x: 10, y: 20}}
         >
           <div className="bg-element custom-border" style={{ width: "400px", height: "300px" }} >
             <div className="box p-0.5">
