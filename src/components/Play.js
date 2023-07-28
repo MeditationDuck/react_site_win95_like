@@ -14,31 +14,36 @@ function Play() {
     { name: 'notepad', icon: 'notepad.ico' }
   ];
 
-  const [showWindow, setShowWindow] = useState(false); 
+  const [showWindow, setShowWindow] = useState(false);
+  const [position, setPosition] = useState({x: 40, y: 40});
   
+  const onStop = (data, name) => {
+    if (data.x === position.x && data.y === position.y && name === "notepad") {
+      setShowWindow(true);
+    } else {
+      setPosition({ x: data.x, y: data.y });
+    }
+  };
+
   return (
     <div className=''>
       {elements.map((element, index) => {
         return(
         <Draggable
           defaultPosition={{x: 40, y: 40}}
+          onStop={(_, data) => onStop(data, element.name)}
+          key={index}
         >
         <div 
         style={{ width: "100px", height: "100px" }} 
         className="handle flex item-center justify-center border border-dashed border-black cursor-pointer"
-        key={index}
-        onDoubleClick={() => {
-          if (element.name === 'notepad') { // check if double clicked icon is notepad
-            setShowWindow(true); // if true, set showWindow to true
-          }
-        }}
         >
           <div className="box text-center text- font-w95 p-2">
             <div style={{ 
                 backgroundImage: `url(${process.env.PUBLIC_URL}/${element.icon})`,
                 backgroundSize: 'cover',
-                height: '60px',
-                width: '60px'
+                height: '50px',
+                width: '50px'
             }}></div>
             <p>{element.name}</p>
           </div>
