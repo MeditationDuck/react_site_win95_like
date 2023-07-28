@@ -26,12 +26,7 @@ function Navbar() {
     }, 1000);
     return () => clearInterval(interval);
   }, []);
-
-  // const handleClick = (button) => {
-  //   setButtonStatus(prev => ({...prev, [button]: !prev[button]}));
-  // }
  
-  
   return(
     <div className='bg-element w-full flex justify-between items-center fixed bottom-0 py-1 px-2 z-1 text-black'>
       {bar_contents.map((content, index) => {
@@ -51,10 +46,10 @@ function Navbar() {
           <img 
           src={process.env.PUBLIC_URL + '/'+ content.icon}
           alt="window icon" 
-          className="h-6 w-6 mr-1 pt-[0.1]"
+          className="h-6 w-6 mx-0.5 "
           />
         }
-          <div className="text-lg font-w95 ">{content.name}</div>
+          <div className="ml-1 text-lg font-w95 hidden sm:block">{content.name}</div>
         </div>
       )
       })}
@@ -64,8 +59,7 @@ function Navbar() {
       <div 
       className='custom-border-pushed py-1 px-2'
       style={{ whiteSpace: 'nowrap'}}
-      >
-        <p>{time}</p>
+      > <p>{time}</p>
       </div>
     </div>
   )
