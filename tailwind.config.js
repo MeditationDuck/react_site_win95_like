@@ -13,6 +13,7 @@ module.exports = {
       secondary: '#008400',
       tertiary: '#101010', 
       desktop: '#008282',
+      element: '#c3c3c3',
       ...colors,
     },
     extend: {

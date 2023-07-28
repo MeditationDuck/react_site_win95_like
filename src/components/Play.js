@@ -1,58 +1,78 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import { motion } from "framer-motion";
 import Draggable from 'react-draggable';
 
+
+
+
 function Play() {
   // const constraintsRef = React.useRef(null);
-
-  
-
   // const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
+
+  const elements = [
+    { name: 'folder', icon: 'folder.ico' },
+    { name: 'notepad', icon: 'notepad.ico' }
+  ];
+
+  const [showWindow, setShowWindow] = useState(false); 
+  
   return (
     <div className=''>
-      {/* <h1>Play</h1> */}
-
-      {/* <motion.div 
-        style={{backgroundColor:"red", width: "30px", height: "30px"}}
-        animate={{ x: 200, y:500 }}
-      />
-
-      <motion.div ref={constraintsRef}
-        className='h-screen'
-        dragListener={false}
-    
+      {elements.map((element, index) => {
+        return(
+        <Draggable
+          defaultPosition={{x: 40, y: 40}}
         >
-        <motion.div 
-        drag 
-        dragConstraints={constraintsRef} 
-        dragElastic={0}
-        style={{backgroundColor:"blue", width: "200px", height: "200px", borderRadius: "20%" }} 
-        whileHover={{ scale: 1.2 }}
-        whileTap={{ scale: 1}}
-        />
-      </motion.div> */}
+        <div 
+        style={{ width: "100px", height: "100px" }} 
+        className="handle flex item-center justify-center border border-dashed border-black cursor-pointer"
+        key={index}
+        onDoubleClick={() => {
+          if (element.name === 'notepad') { // check if double clicked icon is notepad
+            setShowWindow(true); // if true, set showWindow to true
+          }
+        }}
+        >
+          <div className="box text-center text- font-w95 p-2">
+            <div style={{ 
+                backgroundImage: `url(${process.env.PUBLIC_URL}/${element.icon})`,
+                backgroundSize: 'cover',
+                height: '60px',
+                width: '60px'
+            }}></div>
+            <p>{element.name}</p>
+          </div>
 
-      <Draggable
-        defaultPosition={{x: 40, y: 40}}
-      >
-      <div 
-      style={{ width: "100px", height: "100px" }} 
-      className="handle flex item-center justify-center border border-dashed border-black"
-      // onClick={() => console.log('click')}
-      >
-        <div className="box text-center text- font-w95">
-        <div style={{ 
-            backgroundImage: `url(${process.env.PUBLIC_URL}/folder.ico)`,
-            backgroundSize: 'cover',
-            height: '60px',
-            width: '60px'
-        }}></div>
-          <p>Folder</p>
-        </div>
+          </div>
+        </Draggable>
+        )
+      })}
 
-        </div>
-      </Draggable>
-      
+        {/* by default this window should not shown but if I double click the notepad icon.
+        it should appear this window */}
+
+        {showWindow && 
+        <Draggable handle="strong" 
+        defaultPosition={{x: 100, y: 40}}
+        >
+          <div className="bg-element custom-border" style={{ width: "400px", height: "300px" }} >
+            <div className="box p-0.5">
+              <strong className="cursor flex justify-between bg-[#000082]  px-0.5">
+                <div className=' text-white cursor-pointer '>About</div>
+                <div 
+                className='bg-element px-1 my-1  custom-border cursor-pointer'
+                onClick={() => setShowWindow(false)}
+                >
+                  <div
+                   className='-my-1 pb-0.5'
+                   
+                   >X</div>
+                </div>
+              </strong>
+              <div>Text should be here...</div>
+            </div>
+          </div>
+        </Draggable> }
     </div>
   );
 }

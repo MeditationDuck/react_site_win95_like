@@ -12,8 +12,8 @@ function Navbar() {
   }, []);
   
   return(
-    <div className='bg-[#c3c3c3] w-full flex justify-between items-center fixed bottom-0 py-2 px-2 z-10 text-black'>
-      <div class='custom-border flex item-center p-1'>
+    <div className='bg-element w-full flex justify-between items-center fixed bottom-0 py-2 px-2 z-10 text-black'>
+      <div class='custom-border flex item-center p-1 cursor-pointer'>
     
         <img 
         src={process.env.PUBLIC_URL + '/windows.ico'} 
