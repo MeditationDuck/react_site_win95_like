@@ -2,24 +2,25 @@ import React, { useState } from 'react';
 // import { motion } from "framer-motion";
 import Draggable from 'react-draggable';
 
-
-
-
 function Play() {
   // const constraintsRef = React.useRef(null);
   // const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
 
   const elements = [
-    { name: 'folder', icon: 'folder.ico' },
-    { name: 'notepad', icon: 'notepad.ico' }
+    { name: 'folder', icon: 'folder.ico', link: "/about"},
+    { name: 'notepad', icon: 'notepad.ico', link: null }
   ];
 
   const [showWindow, setShowWindow] = useState(false);
   const [position, setPosition] = useState({x: 40, y: 40});
   
   const onStop = (data, name) => {
-    if ( Math.abs(data.x - position.x) <= 2  && Math.abs(data.y - position.y) <= 2 && name === "notepad") {
-      setShowWindow(true);
+    if ( Math.abs(data.x - position.x) <= 2  && Math.abs(data.y - position.y) <= 2) {
+      if( name === "notepad"){
+        setShowWindow(true);
+      }else{
+
+      }
     } else {
       setPosition({ x: data.x, y: data.y });
     }
@@ -36,8 +37,8 @@ function Play() {
           grid={[2, 2]}
         >
         <div 
-        style={{ width: "100px", height: "100px" }} 
-        className="handle flex item-center justify-center border border-dashed border-black cursor-pointer"
+          style={{ width: "100px", height: "100px" }} 
+          className="handle flex item-center justify-center border border-dashed border-black cursor-pointer"
         >
           <div className="box text-center text- font-w95 p-2">
             <div style={{ 
@@ -55,27 +56,30 @@ function Play() {
       })}
 
         {showWindow && 
-        <Draggable handle="strong" 
-        defaultPosition={{x: 10, y: 20}}
-        >
-          <div className="bg-element custom-border" style={{ width: "400px", height: "300px" }} >
-            <div className="box p-0.5">
-              <strong className="cursor flex justify-between bg-[#000082]  px-0.5">
-                <div className=' text-white cursor-pointer '>About</div>
-                <div 
-                className='bg-element px-1 my-1  custom-border cursor-pointer'
-                onClick={() => setShowWindow(false)}
-                >
-                  <div
-                   className='-my-1 pb-0.5'
-                   
-                   >X</div>
-                </div>
-              </strong>
-              <div>Text should be here...</div>
+        <div>
+          <Draggable handle="strong" 
+          defaultPosition={{x: 10, y: 20}}
+         
+          >
+            <div className="bg-element custom-border" style={{ width: "400px", height: "300px" }} >
+              <div className="box p-0.5">
+                <strong className="cursor flex justify-between bg-[#000082]  px-0.5">
+                  <div className=' text-white cursor-pointer '>About</div>
+                  <div 
+                  className='bg-element px-1 my-1  custom-border cursor-pointer'
+                  onClick={() => setShowWindow(false)}
+                  >
+                    <div
+                    className='-my-1 pb-0.5'
+                    >X</div>
+                  </div>
+                </strong>
+                <div>Text should be here...</div>
+              </div>
             </div>
-          </div>
-        </Draggable> }
+          </Draggable>
+        </div>
+        }
     </div>
   );
 }
