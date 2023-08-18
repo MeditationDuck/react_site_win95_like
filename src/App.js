@@ -1,6 +1,6 @@
 // import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { Play, Navbar } from './components';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Play, Navbar, About, LiveSchedule } from './components';
 import './App.css';
 
 
@@ -9,11 +9,13 @@ function App() {
     <BrowserRouter>
       <div className='bg-desktop w-screen min-h-screen'>
         {/* navbar should here */}
-        <Navbar />
-        {/* <div className='relative'> */}
-          <Play />
-        {/* </div> */}
-        {/* footer here */}
+
+        <Routes>
+          <Route path="/" element={<> <Navbar /> <Play /> </>} />
+          <Route path="/about" element={<><About /> <Navbar /> </>} />
+          <Route path="/schedules" element={<><LiveSchedule /> <Navbar /></>} />
+        </Routes>
+  
       </div>
     </BrowserRouter>
   );

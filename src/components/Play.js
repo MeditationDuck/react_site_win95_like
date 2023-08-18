@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
 // import { motion } from "framer-motion";
 import Draggable from 'react-draggable';
+import { useNavigate } from 'react-router-dom';
 
 function Play() {
-  // const constraintsRef = React.useRef(null);
-  // const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
-
   const elements = [
     { name: 'folder', icon: 'folder.ico', link: "/about"},
-    { name: 'notepad', icon: 'notepad.ico', link: null }
+    { name: 'notepad', icon: 'notepad.ico', link: null },
+    { name: 'Schedules', icon: 'globe.ico', link: "/schedules" },
   ];
 
   const [showWindow, setShowWindow] = useState(false);
   const [position, setPosition] = useState({x: 40, y: 40});
+
+  const navigate = useNavigate();
   
-  const onStop = (data, name) => {
+  const onStop = (data, element) => {
     if ( Math.abs(data.x - position.x) <= 2  && Math.abs(data.y - position.y) <= 2) {
-      if( name === "notepad"){
+      if( element.name === "notepad"){
         setShowWindow(true);
       }else{
-
+        navigate(element.link);
+        console.log("pushed");
       }
     } else {
       setPosition({ x: data.x, y: data.y });
@@ -32,24 +34,25 @@ function Play() {
         return(
         <Draggable
           defaultPosition={{x: 40, y: 40}}
-          onStop={(_, data) => onStop(data, element.name)}
+          onStop={(_, data) => onStop(data, element)}
           key={index}
           grid={[2, 2]}
         >
-        <div 
-          style={{ width: "100px", height: "100px" }} 
-          className="handle flex item-center justify-center border border-dashed border-black cursor-pointer"
-        >
-          <div className="box text-center text- font-w95 p-2">
-            <div style={{ 
-                backgroundImage: `url(${process.env.PUBLIC_URL}/${element.icon})`,
-                backgroundSize: 'cover',
-                height: '50px',
-                width: '50px'
-            }}></div>
-            <p>{element.name}</p>
-          </div>
-
+          <div 
+            style={{ width: "100px", height: "100px" }} 
+            className="handle flex item-center justify-center border border-dashed border-black cursor-pointer"
+          >
+            <div className="box text-center text- font-w95 p-2">
+              <a href={element.link}>
+              <div style={{ 
+                  backgroundImage: `url(${process.env.PUBLIC_URL}/${element.icon})`,
+                  backgroundSize: 'cover',
+                  height: '50px',
+                  width: '50px'
+              }}></div>
+              </a>
+              <p>{element.name}</p>
+            </div>
           </div>
         </Draggable>
         )

@@ -32,8 +32,8 @@ function Navbar() {
       {bar_contents.map((content, index) => {
         console.log(process.env.PUBLIC_URL + content.icon)
         return(
-        <div 
-        class={`flex p-1 cursor-pointer flex-shrink-0 mx-1 ${buttonStatus[content.name.toLowerCase()] ? 'custom-border-pushed' : 'custom-border'}`}
+        <div key={index}
+        className={`flex p-1 cursor-pointer flex-shrink-0 mx-1 ${buttonStatus[content.name.toLowerCase()] ? 'custom-border-pushed' : 'custom-border'}`}
         onMouseDown={() => setButtonStatus(prev => ({...prev, [content.name.toLowerCase()]: true}))}
         onMouseUp={() => {
           setButtonStatus(prev => ({...prev, [content.name.toLowerCase()]: false}));
