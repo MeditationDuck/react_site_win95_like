@@ -47,7 +47,7 @@ const LiveSchedule = () => {
               <p className="text-gray-600">{event.time_from} - {event.time_to}</p>
             </div>
             <a href={event.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-              Watch Live
+              See Details
             </a>
           </div>
         </div>
