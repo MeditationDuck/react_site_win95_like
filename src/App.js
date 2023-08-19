@@ -1,6 +1,6 @@
 // import React, { Component } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Play, Navbar, About, LiveSchedule } from './components';
+import { Play, Navbar, About, LiveSchedule, Musics } from './components';
 import './App.css';
 
 
@@ -14,6 +14,8 @@ function App() {
           <Route path="/" element={<> <Navbar /> <Play /> </>} />
           <Route path="/about" element={<><About /> <Navbar /> </>} />
           <Route path="/schedules" element={<><LiveSchedule /> <Navbar /></>} />
+          <Route path="/musics" element={<><Musics /> <Navbar /></>} />
+          
         </Routes>
   
       </div>

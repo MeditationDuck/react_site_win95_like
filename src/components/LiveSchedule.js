@@ -36,7 +36,7 @@ const live_data = [
 
 const LiveSchedule = () => {
   return (
-    <div className="bg-tertiary w-screen min-h-screen p-8 flex flex-col items-center space-y-8">
+    <div className="w-screen min-h-screen p-8 flex flex-col items-center space-y-8">
       {live_data.map((event, index) => (
         <div key={index} className="w-full max-w-2xl bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold mb-2">{event.name}</h2>
