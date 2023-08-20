@@ -77,10 +77,10 @@ function Play() {
         {showWindow && 
         <div>
           <Draggable handle="strong" 
-          defaultPosition={{x: 10, y: 20}}
+          defaultPosition={{x: 150, y: -450}}
          
           >
-            <div className="bg-element custom-border" style={{ width: "400px", height: "300px" }} >
+            <div className="bg-element custom-border" style={{ width: "400px", height: "600px" }} >
               <div className="box p-0.5">
                 <strong className="cursor flex justify-between bg-[#000082]  px-0.5">
                   <div className=' text-white cursor-pointer '>Player</div>

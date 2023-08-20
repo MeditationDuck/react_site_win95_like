@@ -26,8 +26,16 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'HKDotKodenmachou12';
+  src: local('HKDotKodenmachou12'),
+       url('./fonts/KH-Dot-Kodenmachou-12.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 html {
-  font-family:  "Windows95";
+  font-family: "Windows95", "HKDotKodenmachou12", sans-serif;
   font-size: 18px;
 }
