@@ -1,6 +1,6 @@
 // import React, { Component } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Play, Navbar, About, LiveSchedule, Musics } from './components';
+import { Play, Navbar, About, LiveSchedule, Musics} from './components';
 import './App.css';
 
 
@@ -8,13 +8,12 @@ function App() {
   return (
     <BrowserRouter>
       <div className='bg-desktop w-screen min-h-screen'>
-        {/* navbar should here */}
 
         <Routes>
-          <Route path="/" element={<> <Navbar /> <Play /> </>} />
-          <Route path="/about" element={<><About /> <Navbar /> </>} />
-          <Route path="/schedules" element={<><LiveSchedule /> <Navbar /></>} />
-          <Route path="/musics" element={<><Musics /> <Navbar /></>} />
+          <Route path="react_site_win95_like/" element={<> <Navbar /> <Play /> </>} />
+          <Route path="react_site_win95_like/about" element={<><About /> <Navbar /> </>} />
+          <Route path="react_site_win95_like/schedules" element={<><LiveSchedule /> <Navbar /></>} />
+          <Route path="react_site_win95_like/musics" element={<><Musics /> <Navbar /></>} />
           
         </Routes>
   

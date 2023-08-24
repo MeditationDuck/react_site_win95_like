@@ -6,11 +6,11 @@ import  Player from './Player';
 
 function Play() {
   const elements = [
-    { name: 'About', icon: 'folder.ico', link: "/about"},
+    { name: 'Profile', icon: 'folder.ico', link: "about"},
     { name: 'Player', icon: 'music.ico', link: null },
-    { name: 'Schedules', icon: 'globe.ico', link: "/schedules" },
+    { name: 'Schedules', icon: 'globe.ico', link: "schedules" },
     { name: 'Shop', icon: 'folder-open.ico', link: "http://amazon.com"},
-    { name: 'Musics', icon: 'my_computer.ico', link: "/musics" }
+    { name: 'Musics', icon: 'my_computer.ico', link: "musics" }
   ];
 
   const [showWindow, setShowWindow] = useState(false);
@@ -109,12 +109,7 @@ function Play() {
                   }
                 </div>
                 <div className="h-0.5 bg-white -mt-0.5"></div>
-
                 <Player ref={playerRef}/>
-
-
-
-                
               </div>
             </div>
           </Draggable>
